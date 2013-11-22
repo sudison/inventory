@@ -1,0 +1,28 @@
+<ul class="nav nav-pills">
+    <button ng-click="newItem()" class="btn btn-default">New</button>
+</ul>
+
+<table class="table table-bordered table-condensed table-striped table-hover">
+    <thead>
+    <tr>
+        <th class="span3"></th>
+        <th class="span3">Name</th>
+        <th class="span5">Description</th>
+        <th class="span2">Priority</th>
+        <th class="span2">Est</th>
+        <th class="span2">State</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in items">
+        <td >
+            <input type="checkbox" ng-click="updateSelection($event, item.id)" />
+        </td>
+        <td >{{item.name}}</td>
+        <td >{{item.disc}}</td>
+        <td >{{item.number}}</td>
+        <td >{{item.est}}</td>
+        <td >{{item.state}}</td>
+    </tr>
+    </tbody>
+</table>

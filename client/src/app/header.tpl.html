@@ -1,0 +1,24 @@
+<div class="navbar" ng-controller="HeaderCtrl">
+    <div class="navbar-inner">
+        <a class="brand" ng-click="home()">Isharya</a>
+
+        <ul class="nav" ng-show="isAuthenticated()">
+            <li ng-class="{active:isNavbarActive('Orders')}"><a href="/inventory">Inventory</a></li>
+        </ul>
+        <ul class="nav" ng-show="isAuthenticated()">
+            <li ng-class="{active:isNavbarActive('Shipments')}"><a href="/orders">Shipments</a></li>
+        </ul>
+        <login-toolbar></login-toolbar>
+    </div>
+    <div>
+        <ul class="breadcrumb">
+            <li ng-repeat="breadcrumb in breadcrumbs.getAll()">
+                <span class="divider">/</span>
+                <ng-switch on="$last">
+                    <span ng-switch-when="true">{{breadcrumb.name}}</span>
+                    <span ng-switch-default><a href="{{breadcrumb.path}}">{{breadcrumb.name}}</a></span>
+                </ng-switch>
+            </li>
+        </ul>
+    </div>
+</div>
